@@ -77,7 +77,7 @@ sequenceDiagram
 
 ### Stage 5: Control Loop (per step)
 - **Controller Input**: Robot pose `(x, y, θ)` + current waypoint `(wx, wy)`
-- **Controller Output**: `(v_cmd, ω_cmd)` — linear and angular velocity commands
+- **Controller Output**: `(v_cmd, ω_cmd)` - linear and angular velocity commands
 - **Data Types**: All `float` values in SI units (m/s, rad/s)
 
 ### Stage 6: Kinematics Integration
@@ -88,7 +88,7 @@ sequenceDiagram
 ### Stage 7: Collision Checking
 - **Input**: Robot world position `(x, y)` + robot radius `R`
 - **Processing**: Boundary check → scan occupied cells in AABB → circle-rectangle distance
-- **Output**: `bool` — True if collision-free
+- **Output**: `bool` - True if collision-free
 
 ### Stage 8: Result Assembly
 - **Output Data Structure** (`SimulationResult`):

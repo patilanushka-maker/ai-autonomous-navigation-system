@@ -1,10 +1,10 @@
-# Technical Documentation — AI-Based Autonomous Navigation System
+# Technical Documentation - AI-Based Autonomous Navigation System
 
 Welcome to the technical documentation repository for the **AI-Based Autonomous Navigation System**. This folder is the single source of truth for all architecture, data flow, module details, algorithmic formulations, and development history.
 
 ---
 
-## 📁 Documentation Index
+## Documentation Index
 
 | Document | What It Covers |
 | :--- | :--- |

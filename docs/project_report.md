@@ -29,5 +29,5 @@ The software stack is organized into decoupled modules under `src/`:
 
 ## 3. Scope & Verification Strategy
 - **Testing Approach**: Granular unit tests per module (`tests/test_*.py`) verifying edge cases (e.g., path optimality, obstacle boundary intersections, angle wrapping, and velocity saturation).
-- **Current Milestone**: Phase 1 — Repository Scaffolding, Environment Verification, and Clean Architecture Design.
-- **Next Milestone**: Phase 2 — Implementation of Core Navigation Algorithms, Simulation Engine, and Unit Tests.
+- **Current Milestone**: Phase 1 - Repository Scaffolding, Environment Verification, and Clean Architecture Design.
+- **Next Milestone**: Phase 2 - Implementation of Core Navigation Algorithms, Simulation Engine, and Unit Tests.

@@ -1,12 +1,12 @@
 # System Architecture
 
-This document defines the architecture of the **AI-Based Autonomous Navigation System** — a deterministic 2D autonomous navigation simulator implemented in Python.
+This document defines the architecture of the **AI-Based Autonomous Navigation System** - a deterministic 2D autonomous navigation simulator implemented in Python.
 
 ---
 
 ## 1. Architectural Overview
 
-The system follows a **modular sense-plan-act pipeline**, where each stage is a self-contained Python module with well-defined inputs and outputs. There is no machine learning — all decision-making is algorithmic.
+The system follows a **modular sense-plan-act pipeline**, where each stage is a self-contained Python module with well-defined inputs and outputs. There is no machine learning - all decision-making is algorithmic.
 
 ```mermaid
 graph TD

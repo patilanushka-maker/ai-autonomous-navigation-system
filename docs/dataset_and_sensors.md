@@ -6,7 +6,7 @@ This document describes how the environment data is represented and constructed 
 
 ## Important Clarification: No External Dataset
 
-The current system does **not** use any external dataset. The environment is a **programmatically constructed 2D occupancy grid** — a NumPy array of 0s and 1s. There are no images, point clouds, driving logs, or sensor recordings.
+The current system does **not** use any external dataset. The environment is a **programmatically constructed 2D occupancy grid** - a NumPy array of 0s and 1s. There are no images, point clouds, driving logs, or sensor recordings.
 
 ---
 
@@ -22,7 +22,7 @@ import numpy as np
 # Example: 5x7 grid with an L-shaped obstacle
 grid_data = np.array([
     [0, 0, 0, 0, 0, 0, 0],   # Row 0 (y ≈ 0.5)
-    [0, 1, 1, 1, 0, 0, 0],   # Row 1 — obstacle wall
+    [0, 1, 1, 1, 0, 0, 0],   # Row 1 - obstacle wall
     [0, 0, 0, 1, 0, 0, 0],   # Row 2
     [0, 0, 0, 1, 0, 0, 0],   # Row 3
     [0, 0, 0, 0, 0, 0, 0],   # Row 4 (y ≈ 4.5)
@@ -138,8 +138,8 @@ The `OccupancyGrid` enforces strict input validation:
 
 A feasibility assessment for integrating external navigation datasets (BARN, HM3D, OpenLORIS-Scene) was conducted. Key findings:
 
-- **BARN (Benchmark for Autonomous Robot Navigation)**: Most compatible — provides 2D occupancy grids in 300×300 format that could be loaded directly.
-- **HM3D**: 3D mesh dataset — requires significant preprocessing (slicing to 2D, rasterization) and is overkill for a 2D simulator.
-- **OpenLORIS-Scene**: RGB-D SLAM dataset — requires full perception pipeline, incompatible with current known-map approach.
+- **BARN (Benchmark for Autonomous Robot Navigation)**: Most compatible - provides 2D occupancy grids in 300×300 format that could be loaded directly.
+- **HM3D**: 3D mesh dataset - requires significant preprocessing (slicing to 2D, rasterization) and is overkill for a 2D simulator.
+- **OpenLORIS-Scene**: RGB-D SLAM dataset - requires full perception pipeline, incompatible with current known-map approach.
 
 > Integration of BARN grids is the recommended next step if external data is desired. See `docs/limitations_and_future_work.md` for details.

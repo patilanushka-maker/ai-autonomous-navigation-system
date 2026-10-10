@@ -9,12 +9,12 @@ This document provides a detailed breakdown of every implemented module in `src/
 ```
 src/
 ├── __init__.py             # Package declaration, version "0.1.0"
-├── environment.py          # OccupancyGrid — 2D grid environment
-├── path_planner.py         # AStarPlanner — A* search algorithm
-├── robot.py                # Robot, RobotState — unicycle kinematics
-├── controller.py           # HeadingProportionalController — P-controller
-├── collision_checker.py    # CollisionChecker — circle-vs-grid collision
-├── simulator.py            # NavigationSimulator, SimulationResult — main loop
+├── environment.py          # OccupancyGrid - 2D grid environment
+├── path_planner.py         # AStarPlanner - A* search algorithm
+├── robot.py                # Robot, RobotState - unicycle kinematics
+├── controller.py           # HeadingProportionalController - P-controller
+├── collision_checker.py    # CollisionChecker - circle-vs-grid collision
+├── simulator.py            # NavigationSimulator, SimulationResult - main loop
 ├── config_loader.py        # Configuration loading utility (placeholder)
 ├── visualization.py        # Matplotlib visualizer (placeholder)
 ├── perception.py           # Known-map perception adapter (placeholder)
@@ -24,7 +24,7 @@ src/
 
 ---
 
-## 1. `environment.py` — OccupancyGrid
+## 1. `environment.py` - OccupancyGrid
 
 **Class**: `OccupancyGrid`
 
@@ -38,7 +38,7 @@ OccupancyGrid(grid, resolution=1.0, origin=(0.0, 0.0))
 
 | Parameter | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `grid` | `np.ndarray` or `List[List[int]]` | — | 2D array of 0s and 1s |
+| `grid` | `np.ndarray` or `List[List[int]]` | - | 2D array of 0s and 1s |
 | `resolution` | `float` | `1.0` | Meters per cell (must be > 0) |
 | `origin` | `Tuple[float, float]` | `(0.0, 0.0)` | World coords of cell (0,0) lower corner |
 
@@ -49,17 +49,17 @@ OccupancyGrid.from_dimensions(height, width, initial_value=0, resolution=1.0, or
 ```
 
 ### Properties
-- `height: int` — Number of rows
-- `width: int` — Number of columns
-- `shape: (int, int)` — `(height, width)`
-- `resolution: float` — Meters per cell
-- `origin: (float, float)` — World origin
-- `grid: np.ndarray` — Defensive copy of internal grid
+- `height: int` - Number of rows
+- `width: int` - Number of columns
+- `shape: (int, int)` - `(height, width)`
+- `resolution: float` - Meters per cell
+- `origin: (float, float)` - World origin
+- `grid: np.ndarray` - Defensive copy of internal grid
 
 ### Key Methods
 | Method | Returns | Raises |
 | :--- | :--- | :--- |
-| `is_in_bounds(row, col)` | `bool` | — |
+| `is_in_bounds(row, col)` | `bool` | - |
 | `get_cell(row, col)` | `int` (0 or 1) | `TypeError`, `IndexError` |
 | `set_cell(row, col, value)` | `None` | `TypeError`, `IndexError`, `ValueError` |
 | `is_occupied(row, col)` | `bool` | `TypeError`, `IndexError` |
@@ -69,7 +69,7 @@ OccupancyGrid.from_dimensions(height, width, initial_value=0, resolution=1.0, or
 
 ---
 
-## 2. `path_planner.py` — AStarPlanner
+## 2. `path_planner.py` - AStarPlanner
 
 **Class**: `AStarPlanner`
 
@@ -85,7 +85,7 @@ AStarPlanner(grid: OccupancyGrid)
 | Method | Parameters | Returns | Raises |
 | :--- | :--- | :--- | :--- |
 | `plan(start, goal)` | `(row, col)` tuples | `List[(row, col)]` or `None` | `TypeError`, `ValueError` |
-| `heuristic(r1, c1, r2, c2)` | 4 ints | `int` (Manhattan distance) | — |
+| `heuristic(r1, c1, r2, c2)` | 4 ints | `int` (Manhattan distance) | - |
 
 - Returns `None` if no path exists.
 - Start and goal must be in-bounds and on free cells.
@@ -93,7 +93,7 @@ AStarPlanner(grid: OccupancyGrid)
 
 ---
 
-## 3. `robot.py` — Robot & RobotState
+## 3. `robot.py` - Robot & RobotState
 
 ### `normalize_angle(theta: float) → float`
 Normalizes angle to `[-π, π)`.
@@ -117,7 +117,7 @@ Properties: `x`, `y`, `theta`, `v`, `omega`, `pose → (x, y, θ)`, `state → R
 
 ---
 
-## 4. `controller.py` — HeadingProportionalController
+## 4. `controller.py` - HeadingProportionalController
 
 ```python
 HeadingProportionalController(
@@ -141,7 +141,7 @@ HeadingProportionalController(
 
 ---
 
-## 5. `collision_checker.py` — CollisionChecker
+## 5. `collision_checker.py` - CollisionChecker
 
 ```python
 CollisionChecker(grid: OccupancyGrid, robot_radius=0.2)
@@ -160,7 +160,7 @@ is_pose_collision_free(x, y=None) → bool
 
 ---
 
-## 6. `simulator.py` — NavigationSimulator
+## 6. `simulator.py` - NavigationSimulator
 
 ```python
 NavigationSimulator(
