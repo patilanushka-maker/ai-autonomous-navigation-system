@@ -1,0 +1,6 @@
+# Ignore all generated runtime outputs by default
+*
+
+# Keep gitkeep placeholders to track directories
+!.gitkeep
+!.gitignore
