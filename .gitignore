@@ -54,3 +54,6 @@ outputs/metrics/*
 !outputs/figures/.gitkeep
 !outputs/logs/.gitkeep
 !outputs/metrics/.gitkeep
+
+# GitHub workflows (requires workflow scope if tracked)
+.github/
